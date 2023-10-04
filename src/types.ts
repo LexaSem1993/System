@@ -1,16 +1,19 @@
-import { ListItemProps } from "@mui/material/ListItem";
-import { LinkProps } from "@mui/material/Link";
-
-export interface EnhancedTableToolbarProps {
-  numSelected: number;
+interface tag {
+  id: number;
+  text: string;
 }
 
-export interface ListItemLinkProps extends ListItemProps {
-  to: string;
-  open?: boolean;
+export interface Server {
+  id: number;
+  name: string;
+  type: string;
+  location: string;
+  organization_unit: string;
+  inventory_number: number;
+  tags: tag[];
+  create_date: string;
+  update_date: string;
+  audit_date: string;
 }
 
-export interface LinkRouterProps extends LinkProps {
-  to: string;
-  replace?: boolean;
-}
+export type Order = "asc" | "desc";

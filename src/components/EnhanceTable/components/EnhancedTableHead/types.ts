@@ -1,5 +1,5 @@
 import React from "react";
-import { Server, Order } from "../../types";
+import { Server, Order } from "../../../../types";
 
 export interface EnhancedTableProps {
   numSelected: number;

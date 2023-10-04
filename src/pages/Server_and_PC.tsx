@@ -1,6 +1,6 @@
 import React from "react";
-import { EnhancedTable } from "../../components/EnhanceTable/EnhancedTable";
-import { Search } from "../../components/Search";
+import { EnhancedTable } from "../components/EnhanceTable/EnhancedTable";
+import { Search } from "../components/Search";
 
 export const Server_and_PC = () => {
   return (

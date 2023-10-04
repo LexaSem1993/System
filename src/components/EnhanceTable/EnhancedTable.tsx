@@ -8,7 +8,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
-import { Order, Server } from "./types";
+import { Order, Server } from "../../types";
 import { rows } from "./data";
 import { getComparator, stableSort } from "./utils";
 import { EnhancedTableHead } from "./components/EnhancedTableHead/EnhancedTableHead";
@@ -102,13 +102,13 @@ export function EnhancedTable() {
               rowCount={rows.length}
             />
             <TableBody>
-              {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.id);
-                const labelId = `enhanced-table-checkbox-${index}`;
+              {visibleRows.map((row) => {
+                const isItemSelected = isSelected(row.name);
+                const labelId = `enhanced-table-checkbox-${row.id}`;
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.id)}
+                    onClick={(event) => handleClick(event, row.name)}
                     role="checkbox"
                     aria-checked={isItemSelected}
                     tabIndex={-1}

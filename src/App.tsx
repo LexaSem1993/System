@@ -6,8 +6,8 @@ import List from "@mui/material/List";
 import { Server_and_PC } from "./pages/Server_and_PC";
 import "./style.css";
 import { Route, Routes } from "react-router-dom";
-import { Page } from "../components/Breadcrumbs/Breadcrumbs";
-import { ListItemLink } from "../components/ListItemLink/ListItemLink";
+import { Page } from "./components/Breadcrumbs/Breadcrumbs";
+import { ListItemLink } from "./components/ListItemLink/ListItemLink";
 
 export default function App() {
   const [open, setOpen] = React.useState(true);

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Server } from "../../components/EnhanceTable/types";
+import { Server } from "../types";
 
 const initialState: { servers: Server[] } = { servers: [] };
 

@@ -1,11 +1,11 @@
-import { Server } from "../../types";
+import { Server } from "../../../../types";
 import { EnhancedTableProps } from "./types";
 import * as React from "react";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Checkbox from "@mui/material/Checkbox";
-import { headCells } from "./data";
+import { headCells } from "./constants";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Box from "@mui/material/Box";
 import { visuallyHidden } from "@mui/utils";
