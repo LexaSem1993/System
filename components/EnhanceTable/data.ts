@@ -1,0 +1,40 @@
+import { Server } from "./types";
+
+export const rows: Server[] = [
+  {
+    id: 1,
+    name: "комп 1",
+    type: "стационар1",
+    location: "тест",
+    organization_unit: "тест1",
+    inventory_number: 123424242,
+    tags: [{ id: 121532, text: "fgytryt" }],
+    create_date: "16.02.2023",
+    update_date: "17.02.2023",
+    audit_date: "11.02.2023",
+  },
+  {
+    id: 2,
+    name: "комп 2",
+    type: "стационар2",
+    location: "тест2",
+    organization_unit: "тест2",
+    inventory_number: 1543442,
+    tags: [{ id: 12132, text: "fgytryt" }],
+    create_date: "14.02.2023",
+    update_date: "15.02.2023",
+    audit_date: "14.02.2023",
+  },
+  {
+    id: 3,
+    name: "комп 3",
+    type: "стационар3",
+    location: "тест3",
+    organization_unit: "тест3",
+    inventory_number: 123442,
+    tags: [{ id: 121122, text: "fgytryt" }],
+    create_date: "18.02.2023",
+    update_date: "19.02.2023",
+    audit_date: "20.02.2023",
+  },
+];
