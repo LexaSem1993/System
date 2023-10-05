@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { Order, Server } from "../../types";
-import { rows } from "./data";
+import { rows } from "../../store/data";
 import { getComparator, stableSort } from "./utils";
 import { EnhancedTableHead } from "./components/EnhancedTableHead/EnhancedTableHead";
 import { EnhancedTableToolbar } from "./components/EnhancedTableToolbar/EnhancedTableToolbar";

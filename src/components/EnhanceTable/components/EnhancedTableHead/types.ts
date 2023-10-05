@@ -12,3 +12,9 @@ export interface EnhancedTableProps {
   orderBy: string;
   rowCount: number;
 }
+export interface HeadCell {
+  id: string;
+  numeric: boolean;
+  disablePadding: boolean;
+  label: string;
+}

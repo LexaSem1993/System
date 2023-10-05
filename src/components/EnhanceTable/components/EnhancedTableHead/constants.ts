@@ -1,9 +1,4 @@
-interface HeadCell {
-  id: string;
-  numeric: boolean;
-  disablePadding: boolean;
-  label: string;
-}
+import { HeadCell } from "./types";
 
 export const headCells: HeadCell[] = [
   {

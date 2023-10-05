@@ -1,4 +1,4 @@
-import { Server } from "../../types";
+import { Server } from "../types";
 export const rows: Server[] = [
   {
     id: 1,

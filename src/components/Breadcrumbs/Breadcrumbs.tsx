@@ -1,24 +1,16 @@
 import { useLocation } from "react-router-dom";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { LinkRouter } from "./components/LinkRouter";
+import { breadcrumbNameMap } from "./components/constants";
 
-export const breadcrumbNameMap: { [key: string]: string } = {
-  "/dashboard": "Dashboard",
-  "/CMDB": "CMDB",
-  "/CMDB/server_and_PC": "Server_and_PC",
-  "/networks": "Networks",
-  "/handbook": "Handbook",
-  "/works": "Works",
-};
-
-export function Page() {
+export function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <Breadcrumbs aria-label="breadcrumb">
+    <MuiBreadcrumbs aria-label="breadcrumb">
       <LinkRouter underline="hover" color="inherit" to="/">
         Home
       </LinkRouter>
@@ -33,6 +25,6 @@ export function Page() {
           </LinkRouter>
         );
       })}
-    </Breadcrumbs>
+    </MuiBreadcrumbs>
   );
 }

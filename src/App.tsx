@@ -6,7 +6,7 @@ import List from "@mui/material/List";
 import { Server_and_PC } from "./pages/Server_and_PC";
 import "./style.css";
 import { Route, Routes } from "react-router-dom";
-import { Page } from "./components/Breadcrumbs/Breadcrumbs";
+import { Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 import { ListItemLink } from "./components/ListItemLink/ListItemLink";
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
           component="nav"
           aria-label="mailbox folders"
         >
-          <Page />
+          <Breadcrumbs />
           <List>
             <ListItemLink to="/dashboard" />
             <ListItemLink to="/CMDB" open={open} onClick={handleClick} />

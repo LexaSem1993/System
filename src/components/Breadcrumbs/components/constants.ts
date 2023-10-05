@@ -1,6 +1,8 @@
-import { LinkProps } from "@mui/material/Link";
-
-export interface LinkRouterProps extends LinkProps {
-  to: string;
-  replace?: boolean;
-}
+export const breadcrumbNameMap: { [key: string]: string } = {
+  "/dashboard": "Dashboard",
+  "/CMDB": "CMDB",
+  "/CMDB/server_and_PC": "Server_and_PC",
+  "/networks": "Networks",
+  "/handbook": "Handbook",
+  "/works": "Works",
+};
