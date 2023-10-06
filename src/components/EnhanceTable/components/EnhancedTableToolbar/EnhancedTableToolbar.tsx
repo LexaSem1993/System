@@ -1,4 +1,4 @@
-import { EnhancedTableToolbarProps } from "./constants";
+import { EnhancedTableToolbarProps } from "./types";
 import Toolbar from "@mui/material/Toolbar";
 import { alpha } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";

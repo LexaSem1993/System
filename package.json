@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
     "@mui/styled-engine-sc": "^5.14.10",
+    "@mui/styles": "^5.14.12",
     "@reduxjs/toolkit": "^1.9.6",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",

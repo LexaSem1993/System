@@ -18,30 +18,35 @@ export function ComboBox() {
   );
 }
 
-
-const top100Films= [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-  { label: 'The Godfather: Part II', year: 1974 },
+const top100Films = [
+  { label: "The Shawshank Redemption", year: 1994 },
+  { label: "The Godfather", year: 1972 },
+  { label: "The Godfather: Part II", year: 1974 },
 ];
 
 export const Search = () => {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, height: 50 }}
+      sx={{
+        p: "2px 4px",
+        display: "flex",
+        alignItems: "center",
+        width: 400,
+        height: 50,
+      }}
     >
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
         <SearchIcon />
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Google Maps"
-        inputProps={{ 'aria-label': 'search google maps' }}
+        inputProps={{ "aria-label": "search google maps" }}
       />
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
         <BasicPopover />
       </IconButton>
     </Paper>
   );
-}
+};

@@ -2,16 +2,10 @@ import { HeadCell } from "./types";
 
 export const headCells: HeadCell[] = [
   {
-    id: "id",
-    numeric: false,
-    disablePadding: true,
-    label: "Id (100g serving)",
-  },
-  {
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Name (100g serving)",
+    label: "Name ",
   },
   {
     id: "type",

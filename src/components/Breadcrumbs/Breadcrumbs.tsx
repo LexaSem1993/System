@@ -3,7 +3,7 @@ import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { LinkRouter } from "./components/LinkRouter";
-import { breadcrumbNameMap } from "./components/constants";
+import { breadcrumbNameMap } from "./constants";
 
 export function Breadcrumbs() {
   const location = useLocation();

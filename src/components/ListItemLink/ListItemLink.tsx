@@ -1,5 +1,5 @@
-import { ListItemLinkProps } from "./constants";
-import { breadcrumbNameMap } from "../Breadcrumbs/components/constants";
+import { ListItemLinkProps } from "./types";
+import { breadcrumbNameMap } from "../Breadcrumbs/constants";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ListItem from "@mui/material/ListItem";

@@ -1,4 +1,5 @@
 import { Order } from "../../types";
+import { HeadCell } from "./components/EnhancedTableHead/types";
 
 export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -10,7 +11,7 @@ export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   return 0;
 }
 
-export function getComparator<Key extends keyof any>(
+export function getComparator<Key extends keyof HeadCell>(
   order: Order,
   orderBy: Key
 ): (

@@ -1,6 +1,12 @@
-interface tag {
+export interface Tag {
   id: number;
-  text: string;
+  text:
+    | "latinica"
+    | "red tag"
+    | "blue tag"
+    | "green tag"
+    | "yellow tag"
+    | "orange tag";
 }
 
 export interface Server {
@@ -10,7 +16,7 @@ export interface Server {
   location: string;
   organization_unit: string;
   inventory_number: number;
-  tags: tag[];
+  tags: Tag[];
   create_date: string;
   update_date: string;
   audit_date: string;
