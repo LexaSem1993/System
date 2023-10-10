@@ -9,10 +9,14 @@ export interface Tag {
     | "orange tag";
 }
 
+export type Option = { id: number; text: string };
+
+export type ServerType = "default" | "vm_host" | "vm_guest";
+
 export interface Server {
   id: number;
   name: string;
-  type: string;
+  type: ServerType;
   location: string;
   organization_unit: string;
   inventory_number: number;

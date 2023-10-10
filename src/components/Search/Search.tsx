@@ -3,28 +3,20 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
 import React from "react";
-import { Autocomplete, TextField } from "@mui/material";
 import { BasicPopover } from "../Popover";
-
-export function ComboBox() {
-  return (
-    <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={top100Films}
-      sx={{ width: 300, marginBottom: 3, marginTop: 1 }}
-      renderInput={(params) => <TextField {...params} label="ПК" />}
-    />
-  );
-}
-
-const top100Films = [
-  { label: "The Shawshank Redemption", year: 1994 },
-  { label: "The Godfather", year: 1972 },
-  { label: "The Godfather: Part II", year: 1974 },
-];
+import { useSearchParams } from "react-router-dom";
 
 export const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const handleChangeSearch = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setSearchParams((searchParams) => {
+      searchParams.set("search_val", event.target.value);
+      searchParams.get("search_val");
+      return searchParams;
+    });
+  };
   return (
     <Paper
       component="form"
@@ -41,8 +33,9 @@ export const Search = () => {
       </IconButton>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Google Maps"
+        placeholder="Поиск"
         inputProps={{ "aria-label": "search google maps" }}
+        onChange={handleChangeSearch}
       />
       <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
         <BasicPopover />

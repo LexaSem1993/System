@@ -1,9 +1,24 @@
-import { Server } from "../types";
+import { Server, ServerType, Tag } from "../types";
+
+export const tags: Tag[] = [
+  { id: 1, text: "latinica" },
+  { id: 2, text: "red tag" },
+  { id: 3, text: "blue tag" },
+  { id: 4, text: "green tag" },
+  { id: 5, text: "yellow tag" },
+  { id: 6, text: "orange tag" },
+];
+
+export const PC: { id: number; text: ServerType }[] = [
+  { id: 1, text: "default" },
+  { id: 2, text: "vm_host" },
+  { id: 3, text: "vm_guest" },
+];
 export const rows: Server[] = [
   {
     id: 1,
     name: "комп 1",
-    type: "стационар1",
+    type: "default",
     location: "тест",
     organization_unit: "тест1",
     inventory_number: 123424242,
@@ -15,7 +30,7 @@ export const rows: Server[] = [
   {
     id: 2,
     name: "комп 2",
-    type: "стационар2",
+    type: "vm_host",
     location: "тест2",
     organization_unit: "тест2",
     inventory_number: 1543442,
@@ -27,7 +42,7 @@ export const rows: Server[] = [
   {
     id: 3,
     name: "комп 3",
-    type: "стационар3",
+    type: "vm_host",
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,
@@ -39,7 +54,7 @@ export const rows: Server[] = [
   {
     id: 4,
     name: "комп 4",
-    type: "стационар3",
+    type: "vm_guest",
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,
@@ -51,7 +66,7 @@ export const rows: Server[] = [
   {
     id: 5,
     name: "комп 5",
-    type: "стационар3",
+    type: "default",
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,
@@ -63,7 +78,7 @@ export const rows: Server[] = [
   {
     id: 6,
     name: "комп 6",
-    type: "стационар3",
+    type: "default",
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,

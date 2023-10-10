@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { LinkRouter } from "./components/LinkRouter";
+import { LinkRouter } from "./components";
 import { breadcrumbNameMap } from "./constants";
 
 export function Breadcrumbs() {

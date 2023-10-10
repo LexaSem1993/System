@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import Checkbox from "@mui/material/Checkbox";
 import MuiTableRow from "@mui/material/TableRow";
 import { Server } from "../../../../types";
-import { EnhacnedTag } from "./components/EnhacnedTag";
+import { EnhacnedTag } from "./components";
 
 interface TableRowProps {
   row: Server;
