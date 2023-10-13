@@ -2,20 +2,24 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
-import React from "react";
+import React, { useState } from "react";
 import { BasicPopover } from "../Popover";
 import { useSearchParams } from "react-router-dom";
+import Box from "@mui/material/Box";
 
 export const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [value, setValue] = useState(searchParams.get("search_val") || "");
   const handleChangeSearch = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
     setSearchParams((searchParams) => {
-      searchParams.set("search_val", event.target.value);
-      searchParams.get("search_val");
+      event.target.value
+        ? searchParams.set("search_val", event.target.value)
+        : searchParams.delete("search_val");
       return searchParams;
     });
+    setValue(event.target.value);
   };
   return (
     <Paper
@@ -36,10 +40,11 @@ export const Search = () => {
         placeholder="Поиск"
         inputProps={{ "aria-label": "search google maps" }}
         onChange={handleChangeSearch}
+        value={value}
       />
-      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+      <Box sx={{ p: "10px" }} aria-label="search">
         <BasicPopover />
-      </IconButton>
+      </Box>
     </Paper>
   );
 };

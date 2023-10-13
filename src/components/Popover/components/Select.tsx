@@ -10,13 +10,11 @@ import { Option } from "../../../types";
 interface SelectProps {
   options: Option[];
   onChange: (text: string) => void;
+  value: string;
 }
 
-export const BasicSelect: FC<SelectProps> = ({ options, onChange }) => {
-  const [option, setOption] = React.useState<string>("");
-
+export const BasicSelect: FC<SelectProps> = ({ options, onChange, value }) => {
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setOption(event.target.value as string);
     onChange(event.target.value as string);
   };
 
@@ -27,7 +25,7 @@ export const BasicSelect: FC<SelectProps> = ({ options, onChange }) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={option}
+          value={value}
           label="Тип ПК"
           onChange={handleChange}
         >

@@ -6,7 +6,9 @@ export interface Tag {
     | "blue tag"
     | "green tag"
     | "yellow tag"
-    | "orange tag";
+    | "orange tag"
+    | "black tag"
+    | "white tag";
 }
 
 export type Option = { id: number; text: string };

@@ -7,6 +7,9 @@ import { BasicSelect } from "./components/Select";
 import { PC, tags } from "../../store/data";
 import { CheckboxesTags } from "./components/Autocomplete";
 import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { arrayTagsFromString } from "./utils";
+import { Option } from "../../types";
 
 export function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -14,8 +17,10 @@ export function BasicPopover() {
   );
 
   const [searchParams, setSearchParams] = useSearchParams();
-
-  console.log(searchParams.get("endpoint_tags"));
+  const [type, setType] = useState(searchParams.get("endpoint_type") || "");
+  const [tagOptions, setTagOptions] = useState<Option[]>(
+    arrayTagsFromString(searchParams.get("endpoint_tags"), tags) || []
+  );
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -27,20 +32,26 @@ export function BasicPopover() {
 
   const handleChangeType = (text: string) => {
     setSearchParams((searchParams) => {
-      searchParams.set("endpoint_type", text);
-      searchParams.get("endpoint_type");
+      text
+        ? searchParams.set("endpoint_type", text)
+        : searchParams.delete("endpoint_type");
       return searchParams;
     });
+    setType(text);
   };
 
-  const handleChangeTags = (text: string[]) => {
+  const handleChangeTags = (text: Option[]) => {
     setSearchParams((searchParams) => {
-      searchParams.set("endpoint_tags", text.toString());
-      searchParams.get("endpoint_tags");
+      text.length > 0
+        ? searchParams.set(
+            "endpoint_tags",
+            text.map((item) => item.text).toString()
+          )
+        : searchParams.delete("endpoint_tags");
       return searchParams;
     });
+    setTagOptions(text);
   };
-
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
@@ -60,10 +71,14 @@ export function BasicPopover() {
         }}
       >
         <Box sx={{ p: 2, paddingBottom: 2 }}>
-          <BasicSelect options={PC} onChange={handleChangeType} />
+          <BasicSelect options={PC} value={type} onChange={handleChangeType} />
         </Box>
         <Box sx={{ p: 2, paddingBottom: 20 }}>
-          <CheckboxesTags options={tags} onChange={handleChangeTags} />
+          <CheckboxesTags
+            options={tags}
+            value={tagOptions}
+            onChange={handleChangeTags}
+          />
         </Box>
       </Popover>
     </div>

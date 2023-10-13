@@ -12,12 +12,21 @@ import { EnhancedTableRow } from "./components/TableRow";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { IRootState } from "../../store";
+import { filterTable } from "../../store/serverReducer";
 
 export function EnhancedTable() {
-  const [selected, setSelected] = React.useState<readonly string[]>([]);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [selected, setSelected] = React.useState<readonly string[]>([]);
+  const [page, setPage] = React.useState(Number(searchParams.get("page")) || 0);
+  const [rowsPerPage, setRowsPerPage] = React.useState<number>(
+    Number(searchParams.get("limit")) || 5
+  );
+
+  const rows = useSelector((state: IRootState) => state.rows.servers);
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -26,6 +35,23 @@ export function EnhancedTable() {
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
+
+  useEffect(() => {
+    const type = searchParams.get("endpoint_type");
+    const tags = searchParams.get("endpoint_tags");
+    const search = searchParams.get("search_val");
+    dispatch(filterTable({ type, tags, search }));
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (page > 0 && visibleRows.length === 0) {
+      setPage(0);
+      setSearchParams((searchParams) => {
+        searchParams.delete("page");
+        return searchParams;
+      });
+    }
+  }, [visibleRows, page]);
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -38,8 +64,9 @@ export function EnhancedTable() {
 
   const handleChangePage = (_event: unknown, newPage: number) => {
     setSearchParams((searchParams) => {
-      searchParams.set("page", newPage.toString());
-      searchParams.get("page");
+      newPage.toString()
+        ? searchParams.set("page", newPage.toString())
+        : searchParams.delete("page");
       return searchParams;
     });
     setPage(newPage);
@@ -49,10 +76,11 @@ export function EnhancedTable() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchParams((searchParams) => {
-      searchParams.set("limit", event.target.value);
-      searchParams.set("page", "0");
-      searchParams.get("limit");
-      searchParams.get("page");
+      event.target.value
+        ? searchParams.set("limit", event.target.value)
+        : searchParams.delete("limit");
+
+      page == 0 ? searchParams.set("page", "0") : searchParams.delete("page");
       return searchParams;
     });
     setRowsPerPage(parseInt(event.target.value, 10));

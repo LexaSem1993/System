@@ -7,6 +7,8 @@ export const tags: Tag[] = [
   { id: 4, text: "green tag" },
   { id: 5, text: "yellow tag" },
   { id: 6, text: "orange tag" },
+  { id: 7, text: "black tag" },
+  { id: 8, text: "white tag" },
 ];
 
 export const PC: { id: number; text: ServerType }[] = [
@@ -46,7 +48,10 @@ export const rows: Server[] = [
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,
-    tags: [{ id: 3, text: "blue tag" }],
+    tags: [
+      { id: 3, text: "blue tag" },
+      { id: 6, text: "orange tag" },
+    ],
     create_date: "18.02.2023",
     update_date: "19.02.2023",
     audit_date: "20.02.2023",
@@ -58,7 +63,10 @@ export const rows: Server[] = [
     location: "тест3",
     organization_unit: "тест3",
     inventory_number: 123442,
-    tags: [{ id: 4, text: "green tag" }],
+    tags: [
+      { id: 4, text: "green tag" },
+      { id: 6, text: "orange tag" },
+    ],
     create_date: "18.02.2023",
     update_date: "19.02.2023",
     audit_date: "20.02.2023",

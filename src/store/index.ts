@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import serverReducer from "./serverReducer";
 
 const rootReducer = combineReducers({
-  stroke: serverReducer,
+  rows: serverReducer,
 });
 
 export type IRootState = ReturnType<typeof rootReducer>;
